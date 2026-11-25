@@ -90,8 +90,15 @@ packageのインストールには複数の方法がありますが、ここで�
 1. Rに同梱されているinstall.package関数を用いて, pak package (packageをインストールするためのpackage)をインストールします。コンソール (左下) に以下を打ち込んで, Enterを押してください。
 
 ````r
-install.package("pak")
+install.packages("pak")
 ````
+
+なお利用しているPCの環境によっては, 以下の手順は、失敗する場合があります。その場合はremotes package (packageをインストールするための代替package)をインストールして、試してみてください。
+
+````r
+install.packages("remotes")
+````
+
 
 2. pak packageに収録されているpak関数を用いて, tidyverseをインストールします。コンソール (左下) に以下を打ち込んで, Enterを押してください。
 
@@ -99,11 +106,22 @@ install.package("pak")
 pak::pak("tidyverse")
 ````
 
+または
+
+````r
+remotes::install_github("tidyverse")
+````
 
 3. 実習用データが収録されている。コンソール (左下) に以下を打ち込んで, Enterを押してください。
 
 ````r
 pak::pak("tetokawata/data4kawata")
+````
+
+または
+
+````r
+remotes::install_github("tetokawata/data4kawata")
 ````
 
 4. 以上をインストールすれば, 最初の実習を行うことができます。学習を行う中で、適宜以下のパッケージをインストールしてください:
@@ -115,4 +133,15 @@ pak::pak("hdm")
 pak::pak("fixest")
 pak::pak("sensemakr")
 pak::pak("Car")
+````
+
+または
+
+````r
+remotes::install_github("estimatr")
+remotes::install_github("cobalt")
+remotes::install_github("hdm")
+remotes::install_github("fixest")
+remotes::install_github("sensemakr")
+remotes::install_github("Car")
 ````
