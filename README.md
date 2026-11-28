@@ -132,6 +132,12 @@ pak::pak("tetokawata/data4kawata")
 remotes::install_github("tetokawata/data4kawata")
 ````
 
-4. 以上をインストールすれば, 最初の実習を行うことができます。学習を行う中では, 以下のファイルを参考に、インストールしてみてください。
+以上をインストールすれば, 最初の実習を行うことができます。
+
+4. 他の実習については、追加のpackageが必要です。以下のファイルを参考に、適宜インストールしてみてください。
 
 - [packages.md](https://github.com/tetokawata/BooKEconome/blob/main/packages.md)
+
+本書内での実習用コード例は, 以下のフォルダ内のコードを参照してください (章別にスクリプトファイルを分けています)
+
+- [example_code](https://github.com/tetokawata/BooKEconome/tree/main/example_code)
