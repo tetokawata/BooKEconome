@@ -1,11 +1,19 @@
 # 計量経済学Basics
 
-川田恵介 「計量経済学Basics」(ライブラリ経済学Basics & Frontier 11, 新世社) のサポートページです。
-詳細は以下の出版社の公式ページを参照ください
+「川田恵介 計量経済学Basics(ライブラリ経済学Basics & Frontier 11, 新世社) 」のサポートページです。
+同書の詳細は以下の出版社の公式ページを参照ください
 
 - https://saiensu.co.jp/search/?isbn=978-4-88384-445-6&y=2026
 
-Rによる実習について, 環境設定をサポートし, コード例を提供します。
+本ページでは、以下の内容を提供します
+
+- Rによる実習について, 環境設定のサポート
+
+- 教科書中のRでの実習について, exampleとなるコード (example_code folder)
+
+- 練習問題の想定回答 (answer folder)
+
+- 現時点で判明/指摘された正誤表 (errata folder)
 
 
 # Rの設定
@@ -14,31 +22,31 @@ Rによる実習について, 環境設定をサポートし, コード例を提
 
     - https://cran.r-project.org/
 
-        - **Windowsの場合**: 「Download R for Windows」をクリック後、「install R for the first time」をクリックしてダウンロードしてください。
+        - **Windowsの場合**: `Download R for Windows`をクリック後、`install R for the first time`をクリックしてダウンロードしてください。
 
-        - **Macの場合**: 「Download R for macOS」をクリック後、ご自身のMacのチップ（Apple SiliconかIntelか）に適合したファイルをダウンロードしてください。
+        - **Macの場合**: `Download R for macOS`をクリック後、ご自身のMacのチップ（`Apple Silicon`か`Intel`か）に適合したファイルをダウンロードしてください。
 
     - ダウンロード終了後は、ファイルを開き, 画面表示に従ってインストールを行なってください。
 
-2. Rは単体でも利用できますが, 統合開発環境 (コードの補完など, Rによるコーディングを補助するアプリ) を用いることで、快適に分析を進めることができます。本書では十分な実績のあるアプリである、Rstudioを利用を推奨します^[他の選択肢としては, vs-code, positron, zed などがあります。]。開発元であるPosit社のページから,  ダウンロードをしてください (URLは以下です)。
+2. Rは単体でも利用できますが, 統合開発環境 (コードの補完など, Rによるコーディングを補助するアプリ) を用いることで、快適に分析を進めることができます。本書では十分な実績のあるアプリである、`Rstudio`を利用を推奨します^[他の選択肢としては, `vs-code`, `positron`, `zed` などがあります。]。開発元であるPosit社のページから,  ダウンロードをしてください (URLは以下です)。
 
     - https://posit.co/download/rstudio-desktop/
 
-        - 画面をスクロールした一番最後にある「Download RStudio」をクリックしてください。
+        - 画面をスクロールした一番最後にある`Download RStudio`をクリックしてください。
 
-        - 移動したページで「Download for "あなたのPCのOS名"」ボタンをクリックしてください。
+        - 移動したページで`Download for "あなたのPCのOS名"`ボタンをクリックしてください。
 
     - ダウンロード終了後は、ファイルを開き, 画面表示に従ってインストールを行なってください。
 
-3. 上記の作業を終えると, Rstudioというアプリを起動できます。
+3. 上記の作業を終えると, `Rstudio`というアプリを起動できます。
 
 # Rstudioの画面
 
-Rstudioを起動すると, 以下の画面が表示されます;
+`Rstudio`を起動すると, 以下の画面が表示されます;
 
 <img src="image/screen_first.png" width="600" alt="RStudioの初期画面">
 
-「ctr + shit + N」を同時に押して、新しい(スクリプト)ファイルを開いてください^[Rstudioでは, スクリプトファイル以外にも, Quarto Documentファイルなど, 他の選択肢もあります。]。
+`ctr + shit + N`を同時に押して、新しい(スクリプト)ファイルを開いてください^[`Rstudio`では, スクリプトファイル以外にも, `Quarto Document`ファイルなど, 他の選択肢もあります。]。
 
 <img src="image/screen.png" width="600" alt="RStudioの初期画面">
 
@@ -51,7 +59,7 @@ Rstudioを起動すると, 以下の画面が表示されます;
 | 環境 | 右上 | 作成した変数やデータを確認する |
 | ファイル/プロット | 右下 | ファイル一覧、グラフ、ヘルプの表示 |
 
-まずはソース (左上) に, 1+1と打ち込んで, ctr + A (Macの場合は, command + A) を押した後に, ctr + Enter (Macの場合は, command + Enter) を押してください。
+まずはソース (左上) に, `1 + 1`と打ち込んで, `ctr + A` (Macの場合は, `command + A`) を押した後に, `ctr + Enter` (Macの場合は, `command + Enter`) を押してください。
 
 ````r
 1 + 1
@@ -67,40 +75,40 @@ Rstudioを起動すると, 以下の画面が表示されます;
 
 # Project folderの設定
 
-Rで何らかのデータ分析プロジェクトを行う際には、プロジェクト専用のフォルダー (**Project Folder**) を作成することをおすすめします。
-Rstudioでは**Project Folder**を以下の画面にある**New Project**をクリックし, 以下の手順で作成できます:
+Rで何らかのデータ分析プロジェクトを行う際には、プロジェクト専用のフォルダー (`Project Folder`) を作成することをおすすめします。
+`Rstudio`では`Project Folder`を以下の画面にある`New Project`をクリックし, 以下の手順で作成できます:
 
-1. 画面左上の**File** -> **New Project**をクリック
+1. 画面左上の`File` -> `New Project`をクリック
 
-2. **New Directory** -> **New Project** をクリック
+2. `New Directory` -> `New Project` をクリック
 
-3. 以下の画面の**Directory Name**にフォルダーの名前 (スペースなどを含めない英語のみの名前を推奨します)を入力し, **Create Project**をクリック
+3. 以下の画面の`Directory Name`にフォルダーの名前 (スペースなどを含めない英語のみの名前を推奨します)を入力し, `Create Project`をクリック
 
 ## スクリプトファイルの保存
 
-Rstudioで作成したスクリプトファイルは、基本的にはProject folderに保存されます。
-例えば, 先ほどの「1 + 1」と打ち込んだファイルを, ctr + S (Macではcommand + S) を押した後, test.Rという名前で保存してみください。
-ファイル (画面左下)にtest.Rと表示されるはずです。
+`Rstudio`で作成したスクリプトファイルは、基本的には`Project folder`に保存されます。
+例えば, 先ほどの`1 + 1`と打ち込んだファイルを, `ctr + S` (Macでは`command + S`) を押した後, `test.R`という名前で保存してみください。
+ファイル (画面左下)に`test.R`と表示されるはずです。
 
 # Packageの整備
 
 Rをインストールした後は, packageと呼ばれる追加プログラムをインストールすることを推奨します。
-packageのインストールには複数の方法がありますが、ここではpak packageを活用する方法を推奨します。
+packageのインストールには複数の方法がありますが、ここでは`pak` packageを活用する方法を推奨します。
 
-1. Rに同梱されているinstall.package関数を用いて, pak package (packageをインストールするためのpackage)をインストールします。コンソール (左下) に以下を打ち込んで, Enterを押してください。
+1. Rに同梱されている`install.package`関数を用いて, `pak` package (packageをインストールするためのpackage)をインストールします。コンソール (左下) に以下を打ち込んで, `Enter`を押してください。
 
 ````r
 install.packages("pak")
 ````
 
-なお利用しているPCの環境によっては, 以下の手順は、失敗する場合があります。その場合はremotes package (packageをインストールするための代替package)をインストールして、試してみてください。
+なお利用しているPCの環境によっては, 以下の手順は、失敗する場合があります。その場合は`remotes` package (packageをインストールするための代替package)をインストールして、試してみてください。
 
 ````r
 install.packages("remotes")
 ````
 
 
-2. pak packageに収録されているpak関数を用いて, tidyverseをインストールします。コンソール (左下) に以下を打ち込んで, Enterを押してください。
+2. `pak` packageに収録されている`pak`関数を用いて, `tidyverse`をインストールします。コンソール (左下) に以下を打ち込んで, `Enter`を押してください。
 
 ````r
 pak::pak("tidyverse")
@@ -112,7 +120,7 @@ pak::pak("tidyverse")
 remotes::install_github("tidyverse")
 ````
 
-3. 実習用データが収録されている。コンソール (左下) に以下を打ち込んで, Enterを押してください。
+3. 実習用データが収録されている。コンソール (左下) に以下を打ち込んで, `Enter`を押してください。
 
 ````r
 pak::pak("tetokawata/data4kawata")
@@ -124,24 +132,6 @@ pak::pak("tetokawata/data4kawata")
 remotes::install_github("tetokawata/data4kawata")
 ````
 
-4. 以上をインストールすれば, 最初の実習を行うことができます。学習を行う中で、適宜以下のパッケージをインストールしてください:
+4. 以上をインストールすれば, 最初の実習を行うことができます。学習を行う中では, 以下のファイルを参考に、インストールしてみてください。
 
-````r
-pak::pak("estimatr")
-pak::pak("cobalt")
-pak::pak("hdm")
-pak::pak("fixest")
-pak::pak("sensemakr")
-pak::pak("Car")
-````
-
-または
-
-````r
-remotes::install_github("estimatr")
-remotes::install_github("cobalt")
-remotes::install_github("hdm")
-remotes::install_github("fixest")
-remotes::install_github("sensemakr")
-remotes::install_github("Car")
-````
+- [packages.md](https://github.com/tetokawata/BooKEconome/blob/main/packages.md)
